@@ -31,12 +31,12 @@ def main():
 
     args = parser.parse_args()
 
-    config = GenReverseConfig(args.config)
+    config = GenReverseConfig(args)
 
     ac = AddressCollector(out_zones=config.out_zones,
-                          directory=args.directory,
-                          verbose=args.verbose,
-                          skip_pipes=args.skip_pipes)
+                          directory=config.directory,
+                          verbose=config.verbose,
+                          skip_pipes=config.skip_pipes)
     for in_zone in config.in_zones:
         ac.parse_zone(in_zone)
 
